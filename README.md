@@ -36,4 +36,5 @@ The notebook illustrates how monads can abstract state mutations while maintaini
 
 ##### Sources
 https://www.youtube.com/watch?v=roP_HC7tiXw
+
 https://www.youtube.com/watch?v=VgA4wCaxp-Q
