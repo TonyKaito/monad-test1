@@ -1,28 +1,35 @@
-# monad-test1
+# Monad Test
 
-This Jupyter notebook demonstrates Writer Monad implementation in Python with practical game logic applications.
-Key Sections:
+This Jupyter notebook demonstrates **Writer Monads** in Python, applying them to game logic for tracking state changes.
 
-1. WriterMonad Class A basic monad implementation with:
+## Key Contents
 
-    value: holds the wrapped value
-    log: accumulates a list of logs from each bind operation
-    bind(): chains operations and combines logs
-    __eq__(): enables unit testing
+**WriterMonad Implementation**
 
-2. Initial Playground Tests the monad with simple string operations, demonstrating how logs accumulate through chained bind calls.
+- A simple monad class that pairs a value with a log (list)
+- `bind()` method chains operations while accumulating logs
+- Includes `__eq__` for unit testing
 
-3. Game Logic Defines a gameData dataclass to represent game state (player IDs, health, debuffs) and an applyDamage() function that modifies game state imperatively.
+**Basic Example**
 
-4. Monad + Game Logic Combines the WriterMonad with game operations using writerApplyDamage(), which:
+- Chains string operations with the monad, accumulating log entries
+- Demonstrates how logs from each step are collected into a list
 
-    Applies damage to a player
-    Logs a deep copy of the entire game state after each operation
-    Returns a WriterMonad for chaining
+**Game Logic Application**
 
-5. Unit Tests Two test suites verify:
+- Defines a `gameData` dataclass with player IDs, health, and debuffs
+- `applyDamage()` function modifies game state imperatively
+- `writerApplyDamage()` wraps this in a monad, using `deepcopy` to log state snapshots
 
-    Basic monad behavior with string/dict operations
-    Game monad behavior, confirming damage is applied correctly and state history is logged
+**Monadic Chain Demo**
 
-Result: The notebook successfully demonstrates how monads can track side effects (game state changes) in a functional programming style, creating an immutable log of all intermediate game states through chained operations.
+- Shows damage being applied to player 3 twice using monad binding
+- The log captures the full game state after each damage application
+- Result: `player_id=3, health=[100, 85, 60, 90, 75]` (after two 20-damage hits)
+
+**Unit Tests**
+
+- Two test classes verify basic monad behavior and the game logic example
+- Both pass successfully
+
+The notebook illustrates how monads can abstract state mutations while maintaining a clear audit trail—useful for game replay, debugging, or undo functionality.
