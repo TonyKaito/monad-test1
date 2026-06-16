@@ -34,7 +34,9 @@ This Jupyter notebook demonstrates **Writer Monads** in Python, applying them to
 
 The notebook illustrates how monads can abstract state mutations while maintaining a clear audit trail—useful for game replay, debugging, or undo functionality.
 
-##### Sources
+## Sources
 https://www.youtube.com/watch?v=roP_HC7tiXw
 
 https://www.youtube.com/watch?v=VgA4wCaxp-Q
+
+https://www.youtube.com/watch?v=i9CU4CuHADQ
